@@ -1,4 +1,4 @@
-[
+{"contacts": [
 	{
 		"name": "Hu Singleton",
 		"phone": "095605828",
@@ -179,4 +179,4 @@
 		"country": "Australia",
 		"address": "P.O. Box 958, 8081 Tellus, Street"
 	}
-]
+]}
