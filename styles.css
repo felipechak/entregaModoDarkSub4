@@ -1,0 +1,89 @@
+body {
+    background-color:rgba(0, 126, 157, 0.8);
+    transition: all 0.8s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.input-group{
+    position:fixed;
+    top: 0;
+    left: 30vw;
+    width: 40vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgba(3, 53, 255, 0.606);
+    opacity: 0.5;
+    padding: 10px 15px 10px 15px;
+    border-radius: 10px;
+    transition: all 0.5s;
+}
+.input-group:hover{
+    opacity: 1;
+}
+.form-outline{
+    width: 88%;
+}
+#searchButton{
+    background-color: rgba(0, 126, 157, 0.8);
+}
+#toggleButton{
+    border-radius: 10px;
+    margin-left: 10px;
+    background-color: rgba(0, 34, 42, 0.8);
+}
+@media screen and (max-width: 1000px) {
+    .input-group{
+        left: 10vw;
+        width: 80vw;
+    }
+    .form-outline{
+        width: 80%;
+    }
+}
+.darkmode {
+    background-color: rgb(44, 44, 44);
+    color: white;
+}
+.input-group.darkmode{
+    background-color: rgb(84, 84, 84);
+}
+.card.darkmode{
+    background-color: rgb(84, 84, 84);
+    color: antiquewhite;
+    border-color: black;
+}
+
+.card {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 20px;
+    max-height: 700px;
+}
+.card-content {
+    text-align: center;
+}
+.card h2 {
+    font-size: 24px;
+    height: 80px;
+}
+#contenedor {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    position: fixed;
+    top: 10vh;
+    left: 5vw;
+    width: 90vw;
+    height: 60vh;
+    overflow-y: scroll;
+  }
+
+p {
+    overflow-y: auto;
+    max-height: 100px;
+    text-align: justify;
+    height: 100px;
+  }

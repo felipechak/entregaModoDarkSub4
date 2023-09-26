@@ -1,7 +1,8 @@
 {"contacts": [
 	{
 		"name": "Hu Singleton",
-		"phone": "095605828", 
+		"phone": "095605828",
+		"country": "Australia",
 		"address": "P.O. Box 767, 8088 Turpis Rd."
 	},
 	{
