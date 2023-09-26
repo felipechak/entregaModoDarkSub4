@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded",()=>{
+    let listaCompleta = []
     const botonBusqueda = document.getElementById("searchButton")
     const inputBusqueda = document.getElementById("searchInput")
     const endpointURL = "https://my-json-server.typicode.com/felipechak/entregaModoDarkSub4/contacts"
@@ -36,6 +37,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 //DarkMode function
 function darkMode() {
     let bodyclass = document.body;
+    let toggleIcon = getElementById("toggleButtonIcon")
     let searchBar = document.getElementsByClassName("input-group")[0]
     let cards = document.getElementsByClassName("card")
     console.log(cards)
@@ -44,7 +46,9 @@ function darkMode() {
     for (let i = 0; i < cards.length; i++) {
       const element = cards[i];
       element.classList.toggle("darkmode");
-    } 
+    }
+    toggleIcon.classList.toggle("fa-moon")
+    toggleIcon.classList.toggle("fa-sun")
 }
 //Darkmode Togglebutton
 document.getElementById("toggleButton").addEventListener("click", () => {
@@ -54,17 +58,23 @@ document.getElementById("toggleButton").addEventListener("click", () => {
 botonBusqueda.addEventListener("click",()=>{
     let terminoBusqueda = inputBusqueda.value
     let listaFiltrada = listaCompleta.filter((contacto)=>{
-        return contacto.name.includes(terminoBusqueda)
+        return contacto.name.includes(terminoBusqueda) //sigo pensando que aca no recorre bien la lista porque la data es un array y dentro del array están los objetos. Entonces necetiraría el [] ej: contacto[i].name.includes
     })
     console.log(listaFiltrada)
     imprimirContactos(listaFiltrada)
 })
 
 //Searchbar intento de Javi
-/*inputBusqueda.addEventListener('keyup', e => {
+ inputBusqueda.addEventListener('keyup', e => {
   let currentValue = e.target.value.toLowerCase();
-  let
-})*/
+  let personas = document.querySelectorAll('h2.name')
+  personas.forEach(persona => {
+    if (persona.textContext.toLowerCase().includes(currentValue)) {
+    persona.parentNode.parentNode.style.display = 'block';
+  } else {
+    persona.parentNode.parentNode.style.display = 'none';
+  })
+}) 
 //Print contacts in page
 const imprimirContactos = (lista) => {
     document.getElementById("contenedor").innerHTML = ""
@@ -79,12 +89,12 @@ const imprimirContactos = (lista) => {
             document.getElementById("contenedor").innerHTML += nuevaTarjeta;
     }
 }
-
+//FUNCIONAAA LA SEARCHHHHHH  :DD
 // Calling the async function      
     fetchData(endpointURL)
      .then(data => {
         console.log(data)
-        let listaCompleta = data
+        listaCompleta = data    
         imprimirContactos(listaCompleta)
     console.log('Fetched data:', data);
     })
