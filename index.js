@@ -65,7 +65,7 @@ botonBusqueda.addEventListener("click",()=>{
 })
 
 //Searchbar intento de Javi
- inputBusqueda.addEventListener('keyup', e => {
+/* inputBusqueda.addEventListener('keyup', e => {
   let currentValue = e.target.value.toLowerCase();
   let personas = document.querySelectorAll('h2.name')
   personas.forEach(persona => {
@@ -73,8 +73,9 @@ botonBusqueda.addEventListener("click",()=>{
     persona.parentNode.parentNode.style.display = 'block';
   } else {
     persona.parentNode.parentNode.style.display = 'none';
+   }
   })
-}) 
+})*/
 //Print contacts in page
 const imprimirContactos = (lista) => {
     document.getElementById("contenedor").innerHTML = ""
