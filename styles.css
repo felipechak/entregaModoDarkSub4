@@ -49,6 +49,9 @@ body {
 .input-group.darkmode{
     background-color: rgb(84, 84, 84);
 }
+#toggleButton.darkmode{
+    background-color: rgba(0, 168, 206, 0.8);
+}
 .card.darkmode{
     background-color: rgb(84, 84, 84);
     color: antiquewhite;

@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 //DarkMode function
 function darkMode() {
     let bodyclass = document.body;
-    let toggleIcon = getElementById("toggleButtonIcon")
+    let toggleIcon = document.getElementById("toggleButtonIcon")
     let searchBar = document.getElementsByClassName("input-group")[0]
     let cards = document.getElementsByClassName("card")
     console.log(cards)
