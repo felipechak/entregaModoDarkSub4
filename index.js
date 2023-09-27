@@ -67,9 +67,19 @@ function darkMode() {
     darkMode();
   });
 
+  function ponerEnMayuscula(string) {
+    
+    const stringMinuscula = string.toLowerCase();
+  
+    const primeraLetra = stringMinuscula.charAt(0);
+  
+    const stringPrimeraMayuscula = primeraLetra.toUpperCase() + stringMinuscula.slice(1);
+  
+    return stringPrimeraMayuscula;
+  }
 
 botonBusqueda.addEventListener("click",()=>{
-    let terminoBusqueda = inputBusqueda.value
+    let terminoBusqueda = ponerEnMayuscula(inputBusqueda.value)
     let listaFiltrada = listaCompleta.filter((contacto)=>{
         return contacto.name.includes(terminoBusqueda) 
     })
@@ -77,19 +87,7 @@ botonBusqueda.addEventListener("click",()=>{
     imprimirContactos(listaFiltrada)
 })
 
-//Searchbar intento de Javi
-/* inputBusqueda.addEventListener('keyup', e => {
-  let currentValue = e.target.value.toLowerCase();
-  let personas = document.querySelectorAll('h2.name')
-  personas.forEach(persona => {
-    if (persona.textContext.toLowerCase().includes(currentValue)) {
-    persona.parentNode.parentNode.style.display = 'block';
-  } else {
-    persona.parentNode.parentNode.style.display = 'none';
-   }
-  })
-})*/
-//Print contacts in page
+
 const imprimirContactos = (lista) => {
     document.getElementById("contenedor").innerHTML = ""
     for (let index = 0; index < lista.length; index++) {
