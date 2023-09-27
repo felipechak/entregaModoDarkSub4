@@ -98,9 +98,15 @@ const imprimirContactos = (lista) => {
             let direccion = element.address;
             let telefono = element.phone;
             let pais = element.country;
-           
             let nuevaTarjeta = crearTarjetaDePersona(nombre, direccion, telefono, pais); 
             document.getElementById("contenedor").innerHTML += nuevaTarjeta;
+    }
+    let nuevosNodos = document.getElementById("contenedor").childNodes
+    if (localStorage.getItem('modoOscuro') === 'true') {
+      for (let i = 0; i < nuevosNodos.length; i++) {
+        const element = nuevosNodos[i];
+        element.classList.add("darkmode")
+      }
     }
   }
 // Calling the async function      
