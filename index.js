@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     
     console.log(window.localStorage.getItem("viewMode"))
 
-//Plantilla para la vtarjeta ncon la informacion de la persona
+//Plantilla para la tarjeta con la informacion de la persona
     const crearTarjetaDePersona = (nombre, direccion, telefono, pais) => {
         let content = `<div class="card">
             
@@ -32,8 +32,6 @@ document.addEventListener("DOMContentLoaded",()=>{
         }
       };
      
-
-
 //DarkMode function
 function darkMode() {
     let bodyclass = document.body;
@@ -49,16 +47,31 @@ function darkMode() {
     }
     toggleIcon.classList.toggle("fa-moon")
     toggleIcon.classList.toggle("fa-sun")
-}
-//Darkmode Togglebutton
-document.getElementById("toggleButton").addEventListener("click", () => {
-  darkMode()
-})
+
+    const modoOscuro = bodyclass.classList.contains("darkmode");
+
+    localStorage.setItem('modoOscuro', modoOscuro);
+  };
+
+  window.addEventListener('load', () => {
+    const modoOscuroGuardado = localStorage.getItem('modoOscuro');
+
+    if (modoOscuroGuardado === 'true') {
+      darkMode();
+    }
+  });
+
+ 
+  // Darkmode Togglebutton
+  document.getElementById("toggleButton").addEventListener("click", () => {
+    darkMode();
+  });
+
 
 botonBusqueda.addEventListener("click",()=>{
     let terminoBusqueda = inputBusqueda.value
     let listaFiltrada = listaCompleta.filter((contacto)=>{
-        return contacto.name.includes(terminoBusqueda) //sigo pensando que aca no recorre bien la lista porque la data es un array y dentro del array están los objetos. Entonces necetiraría el [] ej: contacto[i].name.includes
+        return contacto.name.includes(terminoBusqueda) 
     })
     console.log(listaFiltrada)
     imprimirContactos(listaFiltrada)
@@ -89,8 +102,7 @@ const imprimirContactos = (lista) => {
             let nuevaTarjeta = crearTarjetaDePersona(nombre, direccion, telefono, pais); 
             document.getElementById("contenedor").innerHTML += nuevaTarjeta;
     }
-}
-//FUNCIONAAA LA SEARCHHHHHH  :DD
+  }
 // Calling the async function      
     fetchData(endpointURL)
      .then(data => {
